@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!-- 最初の設定は終わっています　必要な方は触ってください -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>オリジナルツアー作れるツール</title>
+  <link rel="stylesheet" href="css/reset.css"></link>
+  <link rel="stylesheet" href="css/style.css"></link>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/main.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:50%;}</style>
+</head>
+
+
+<body>
+  <!-- この中に記述していく -->
+  <class="wrap">
+
+    <header id="header">
+      <img src="img/header_logo.png" alt="">
+      
+    </header>
+    <!-- /#header -->
+
+
+    <div class="mainvisual">
+      <div style="text-align: center;"><img src="img/IMG_3969.jpeg" alt="自分の旅を売ろう"
+      width="800" height="600"></div>
+      <h1>オリジナルツアー販売サイト「Tabi no Tane」
+      </h1>
+      <p>推しの旅が商品になるかも</p>
+    </div>
+    <!-- /.mainvisual -->
+
+    <!-- MAPで自身の旅の記録を確認できるようにする -->
+    <!-- 写真も掲載できるようにする -->
+    <div class="content">
+      <h2>まずは旅の記録から</h2>
+        <p>Mapに旅の足跡をつけましょう</p>
+      </div>
+
+
+
+<!-- MAP[START] -->
+
+<h1>Click on the pin. (Select 1 to 3 as the second argument of the function. The result changes.)</h1>
+<div id="myMap" style="width:100vw;height:100vh;"></div>
+
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key= Av_LuTIk-xwX3ev1GeS1rNQXgc6yvCEBopjQy3T-yDFeL170SwdmPkr3ShrHis4Q'async defer></script>
+<script src="../js/BmapQuery.js"></script>
+
+
+        <script>
+          //init
+          function GetMap() {
+              //------------------------------------------------------------------------
+              //1. Instance
+              //------------------------------------------------------------------------
+              const map = new Bmap("#myMap");
+              //------------------------------------------------------------------------
+              //2. Display Map
+              //------------------------------------------------------------------------
+              map.startMap(33.945077675349516, 130.96158144331625, "load", 16);
+      
+              //----------------------------------------------------
+              //3. Infobox
+              //   options = new Array();
+              //   options[index] = { lat, lon, width, height, title, pinColor, description, show };
+              //----------------------------------------------------
+              const options = [];
+              options[0]={
+                  "lat":33.945077675349516,
+                  "lon":130.96158144331625,
+                  "title":"門司港駅",
+                  "pinColor":"#ff0000",
+                  "height":300,
+                  "width":320,
+                  "description": '夜の門司港駅ホーム<br><img src="../img/mojikoueki.jpeg" width="300">',
+                  "show":false
+              };
+              options[1]={
+                  "lat":33.94692002870665,
+                  "lon": 130.96257922407824,
+                  "title":"プレミアホテル門司港",
+                  "pinColor":"#ff0000",
+                  "height":300,
+                  "width":320,
+                  "description": 'プレミアホテル門司港部屋からの眺め<br><img src="../img/premierHotel.jpg" width="300">',
+                  "show":false
+              };
+              options[2]={
+                  "lat":33.94812499495681, 
+                  "lon":130.9641775378937,
+                  "title":"北九州市大連 友好記念館",
+                  "pinColor":"#ff0000",
+                  "height":300,
+                  "width":320,
+                  "description": '北九州市大連 友好記念館<br><img src="../img/dairenyuukoukinenkan.jpg" width="300">',
+                  "show":false
+              };
+              options[3]={
+                  "lat":33.948402623400646, 
+                  "lon":130.96411610040175,
+                  "title":"門司港レトロ展望室",
+                  "pinColor":"#ff0000",
+                  "height":300,
+                  "width":320,
+                  "description": '門司港レトロ展望室からの夕日<br><img src="../img/mojikouretorotenbousitu.jpeg" width="300">',
+                  "show":false
+              };
+              options[4]={
+                  "lat":33.94600122971389, 
+                  "lon":130.96162099554252,
+                  "title":"伽哩本舗",
+                  "pinColor":"#ff0000",
+                  "height":300,
+                  "width":320,
+                  "description": '焼きカレー<br><img src="../img/kari-honpo.jpg" width="300">',
+                  "show":false
+              };
+      
+      
+              //----------------------------------------------------
+              //4. Switch infoboxs
+              //   infoboxLayers(options, true); //true=one, false=Multiple
+              //----------------------------------------------------
+              map.infoboxLayers(options,true);
+      
+          } 
+        </script>
+     
+
+    <!-- 行程の記録　メモ機能？ -->
+
+
+</body>
+
+</html>
